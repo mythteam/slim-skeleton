@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Middleware;
+namespace App\Http\Middleware;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Http\Response;
@@ -11,7 +11,7 @@ class Auth
     {
         
         if (true) {
-           $response = $response->write('www.baidu.com');
+            $response = $response->write('www.baidu.com');
         }
         
         return $next($request, $response);

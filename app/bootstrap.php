@@ -1,6 +1,0 @@
-<?php
-
-//$app->add(function () {
-//
-//});
-
