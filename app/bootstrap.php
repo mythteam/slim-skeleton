@@ -1,3 +1,6 @@
 <?php
 
-define('BASE_PATH', dirname(__DIR__));
+//$app->add(function () {
+//
+//});
+
