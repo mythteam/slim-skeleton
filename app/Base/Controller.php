@@ -2,28 +2,24 @@
 
 namespace App\Base;
 
-use Slim\Container;
+use Interop\Container\ContainerInterface;
 
 abstract class Controller
 {
     /**
-     * @var Container
+     * @var ContainerInterface
      */
     protected $container;
     
-    public function __construct(Container $container)
+    public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
     }
     
     public function render($template, $data = [])
     {
-        /** @var \Slim\Http\Response $response */
-        $response = $this->container->get('response');
+        $renderer = $this->container->get('renderer');
         
-        $settings = $this->container->get('settings');
-        $response->getBody()->write(print_r($settings, true));
-        
-        return $response;
+        return $renderer->render($this->container->get('response'), $template, $data);
     }
 }

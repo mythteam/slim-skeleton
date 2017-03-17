@@ -20,6 +20,7 @@ class IndexController extends Controller
         
         //return $response;
         
-        $this->render('index.php', []);
+        $this->render('index.php', [
+        ]);
     }
 }
