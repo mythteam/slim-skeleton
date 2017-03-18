@@ -9,7 +9,7 @@ $settings = [
         \App\Providers\TemplateProvider::class,
     ],
     'twig' => [
-        'debug' => false,
+        'debug' => APP_DEBUG,
         'cache' => BASE_PATH . '/storage/views',
     ],
     'db' => [

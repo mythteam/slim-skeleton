@@ -16,10 +16,6 @@ class IndexController extends Controller
 {
     public function indexAction(ServerRequestInterface $request, Response $response): Response
     {
-        //$response->write($start);
-        
-        //return $response;
-        
         return $this->render('index.php', []);
     }
 }
