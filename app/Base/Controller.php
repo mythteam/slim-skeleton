@@ -16,6 +16,12 @@ abstract class Controller
         $this->container = $container;
     }
     
+    /**
+     * @param string $template
+     * @param array $data
+     *
+     * @return mixed
+     */
     public function render($template, $data = [])
     {
         $renderer = $this->container->get('renderer');

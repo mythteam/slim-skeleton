@@ -2,6 +2,8 @@
 //  PUBLIC_PATH
 define('PUBLIC_PATH', __DIR__);
 define('BASE_PATH', dirname(__DIR__));
+define('APP_ENV', 'develop');
+define('APP_DEBUG', true);
 
 require PUBLIC_PATH . '/../vendor/autoload.php';
 

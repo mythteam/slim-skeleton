@@ -8,6 +8,20 @@ $settings = [
     'providers' => [
         \App\Providers\TemplateProvider::class,
     ],
+    'twig' => [
+        'debug' => false,
+        'cache' => BASE_PATH . '/storage/views',
+    ],
+    'db' => [
+        'driver' => 'mysql',
+        'host' => 'localhost',
+        'database' => 'database',
+        'username' => 'root',
+        'password' => 'password',
+        'charset' => 'utf8',
+        'collation' => 'utf8_unicode_ci',
+        'prefix' => '',
+    ],
 ];
 
 return new \App\Base\Container($settings);

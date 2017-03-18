@@ -9,9 +9,11 @@
     }
   ],
   "require": {
+    "php": ">7.0",
     "slim/slim": "~3.0",
     "slim/csrf": "^0.8.1",
-    "slim/twig-view": "^2.2"
+    "slim/twig-view": "^2.2",
+    "illuminate/database": "^5.4"
   },
   "autoload": {
     "psr-4": {
@@ -23,5 +25,10 @@
       "type": "composer",
       "url": "https://packagist.phpcomposer.com"
     }
+  },
+  "scripts": {
+    "dev": [
+      "run.sh"
+    ]
   }
 }

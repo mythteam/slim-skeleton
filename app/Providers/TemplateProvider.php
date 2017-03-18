@@ -14,9 +14,8 @@ class TemplateProvider implements ServiceProviderInterface
      */
     public function register(Container $c)
     {
-        $view = new Twig(BASE_PATH . '/resources/views', [
-            //'cache' => 'path/to/cache'
-        ]);
+        $options = isset($c['twig']) ? $c['twig'] : [];
+        $view = new Twig(BASE_PATH . '/resources/views', $options);
         
         // Instantiate and add Slim specific extension
         $basePath = rtrim(str_ireplace('index.php', '', $c['request']->getUri()->getBasePath()), '/');
