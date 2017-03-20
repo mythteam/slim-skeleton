@@ -28,7 +28,11 @@
   },
   "scripts": {
     "dev": [
-      "run.sh"
+      "run.sh",
+      "@asset-dev"
+    ],
+    "asset-dev": [
+      "npm run dev"
     ]
   }
 }
