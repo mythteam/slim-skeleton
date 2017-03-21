@@ -28,8 +28,7 @@
   },
   "scripts": {
     "dev": [
-      "run.sh",
-      "@asset-dev"
+      "run.sh"
     ],
     "asset-dev": [
       "npm run dev"

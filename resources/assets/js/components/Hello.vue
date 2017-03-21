@@ -1,15 +1,15 @@
 <template>
-    <div id="app">
-        <h1>{{ msg }}</h1>
-        <el-button @click.native="startHacking">Let's do it!</el-button>
-    </div>
+  <div>
+    <h1>{{ msg }}</h1>
+    <el-button @click.native="startHacking">Let's do it!</el-button>
+  </div>
 </template>
 
 <script>
 export default {
   data () {
     return {
-      msg: 'Use Vue 2.0 Today!~'
+      msg: 'Use Vue 2.0 Today!'
     }
   },
   methods: {
@@ -24,8 +24,8 @@ export default {
 }
 </script>
 
-<style>
-body {
-  font-family: Helvetica, sans-serif;
+<style scoped>
+.h1 {
+  font-style: italic;
 }
 </style>
