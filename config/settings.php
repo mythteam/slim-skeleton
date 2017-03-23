@@ -2,6 +2,7 @@
 
 $settings = [
     'settings' => [
+        'name' => 'Hello VueJS',
         'displayErrorDetails' => true,
         //'determineRouteBeforeAppMiddleware' => true,
     ],
