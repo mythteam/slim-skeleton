@@ -12,6 +12,11 @@ export default {
       msg: 'Use Vue 2.0 Today!'
     }
   },
+  created () {
+    this.$bus.on('hello', (msg) => {
+      console.log(msg)
+    })
+  },
   methods: {
     startHacking () {
       this.$notify({
@@ -19,6 +24,8 @@ export default {
         message: 'We have laid the groundwork for you. Now it\'s your time to build something epic!',
         duration: 6000
       })
+
+      this.$bus.emit('hello', this.$config.name + ' by light')
     }
   }
 }
