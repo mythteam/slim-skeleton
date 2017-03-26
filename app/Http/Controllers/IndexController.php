@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Base\Controller;
-use Psr\Http\Message\ServerRequestInterface;
+use Slim\Http\Request;
 use Slim\Http\Response;
 use SplDoublyLinkedList;
 
@@ -14,8 +14,15 @@ use SplDoublyLinkedList;
  */
 class IndexController extends Controller
 {
-    public function indexAction(ServerRequestInterface $request, Response $response): Response
+    public function indexAction(Request $request, Response $response): Response
     {
         return $this->render('index.php', []);
+    }
+    
+    public function loginAction(Request $request, Response $response): Response
+    {
+        return $this->renderJson([
+            'user' => $request->getParsedBody(),
+        ]);
     }
 }
