@@ -8,6 +8,7 @@ $settings = [
     ],
     'providers' => [
         \App\Providers\TemplateProvider::class,
+        \App\Providers\FractalProvider::class,
     ],
     'twig' => [
         'debug' => APP_DEBUG,

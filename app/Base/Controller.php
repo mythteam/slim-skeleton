@@ -3,6 +3,7 @@
 namespace App\Base;
 
 use Interop\Container\ContainerInterface;
+use League\Fractal\Resource\ResourceInterface;
 use Slim\Http\Response;
 
 abstract class Controller
@@ -39,5 +40,13 @@ abstract class Controller
         $data['message'] = $msg;
         
         return $response->withJson($data, 200, JSON_UNESCAPED_UNICODE);
+    }
+    
+    public function renderResource(ResourceInterface $resource)
+    {
+        /** @var \League\Fractal\Manager $fractal */
+        $fractal = $this->container->get('fractal');
+        
+        return $this->renderJson($fractal->createData($resource)->toArray());
     }
 }
