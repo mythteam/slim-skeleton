@@ -1,6 +1,4 @@
-import Vue from 'vue'
-
-export default function (_Vue, options) {
+export default function (Vue, options) {
   let bus = new Vue()
 
   Object.defineProperties(bus, {
@@ -26,5 +24,5 @@ export default function (_Vue, options) {
     }
   })
 
-  _Vue.prototype.$bus = bus
+  Vue.prototype.$bus = bus
 }

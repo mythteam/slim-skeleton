@@ -1,3 +1,3 @@
-export default function (_vue, config) {
-  _vue.prototype.$config = config
+export default function (Vue, config) {
+  Vue.prototype.$config = config
 }
