@@ -17,8 +17,11 @@ class UserTransformer extends TransformerAbstract
     
     public function transform(User $user)
     {
+        
         return [
-            'username' => 'light',
+            'username' => $user->username,
+            'email' => $user->email,
+            'attributes' => $user->toArray(),
             'transformer' => __CLASS__,
         ];
     }
