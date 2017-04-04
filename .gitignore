@@ -1,6 +1,7 @@
 vendor
 .idea
 .php_cs.cache
+phinx.yml
 node_modules
 
 npm-debug.log

@@ -16,10 +16,10 @@ environments:
 
     development:
         adapter: mysql
-        host: 192.168.10.12
-        name: slim_db
-        user: vagrant
-        pass: 'vagrant'
+        host: localhost
+        name: development_db
+        user: root
+        pass: ''
         port: 3306
         charset: utf8
 
