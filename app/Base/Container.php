@@ -10,12 +10,12 @@ class Container extends SlimContainer
     public function __construct(array $values = [])
     {
         parent::__construct($values);
-        
+
         if (isset($values['providers'])) {
             $this->registerProvider($values['providers']);
         }
     }
-    
+
     /**
      * @param array $providers
      */
@@ -27,7 +27,7 @@ class Container extends SlimContainer
                 continue;
             }
             if (is_string($provider)) {
-                $provider = new $provider;
+                $provider = new $provider();
             }
             if ($provider instanceof ServiceProviderInterface) {
                 $provider->register($this);

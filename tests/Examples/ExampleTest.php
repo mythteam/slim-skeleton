@@ -10,10 +10,10 @@ class ExampleTest extends TestCase
     {
         $stack = [];
         $this->assertEquals(0, count($stack));
-        
+
         return $stack;
     }
-    
+
     /**
      * @depends testEmpty
      *
@@ -26,10 +26,10 @@ class ExampleTest extends TestCase
         array_push($stack, 'foo');
         self::assertEquals('foo', $stack[count($stack) - 1]);
         self::assertNotEmpty($stack);
-        
+
         return $stack;
     }
-    
+
     /**
      * @param array $stack
      *
@@ -40,7 +40,7 @@ class ExampleTest extends TestCase
         self::assertEquals('foo', array_pop($stack));
         self::assertEmpty($stack);
     }
-    
+
     /**
      * @dataProvider dataProvider
      *
@@ -52,7 +52,7 @@ class ExampleTest extends TestCase
     {
         self::assertEquals($expected, $a + $b);
     }
-    
+
     /**
      * @expectedException \Exception
      * @expectedExceptionCode 1
@@ -62,6 +62,7 @@ class ExampleTest extends TestCase
     {
         throw new \Exception('exception', 1);
     }
+
     public function dataProvider()
     {
         return [

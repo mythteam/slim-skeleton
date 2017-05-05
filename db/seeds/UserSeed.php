@@ -15,18 +15,18 @@ class UserSeed extends AbstractSeed
     public function run()
     {
         $user = $this->table('user');
-        
+
         $user->insert([
             [
-                'username' => 'admin',
-                'email' => 'admin@slim.com',
+                'username'      => 'admin',
+                'email'         => 'admin@slim.com',
                 'password_hash' => password_hash('admin', PASSWORD_DEFAULT, ['cost' => 13]),
-                'created_at' => time(),
-                'updated_at' => time(),
-                'status' => 1,
-            ]
+                'created_at'    => time(),
+                'updated_at'    => time(),
+                'status'        => 1,
+            ],
         ]);
-        
+
         $user->save();
     }
 }

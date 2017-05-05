@@ -35,9 +35,9 @@ class UserTable extends AbstractMigration
              ->addColumn('email', 'string', ['limit' => 100, 'comment' => '用户电子邮件'])
              ->addColumn('password_hash', 'string')
              ->addColumn('status', 'integer', ['limit' => MysqlAdapter::INT_SMALL, 'default' => 1, 'comment' => '用户状态']);
-        
+
         $user->addIndex(['email'], ['unique' => true]);
-        
+
         $user->save();
     }
 }
