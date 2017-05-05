@@ -11,6 +11,7 @@ class Test
     {
         //sleep(1);
         $response = $response->withHeader('X-Middle', __CLASS__);
+
         return $next($request, $response);
     }
 }

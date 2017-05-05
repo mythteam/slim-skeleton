@@ -13,11 +13,11 @@ class FractalProvider implements ServiceProviderInterface
     {
         $manager = new Manager();
         $manager->setSerializer(new Serializer());
-        
+
         if (isset($_GET['expand'])) {
             $manager->parseIncludes($_GET['expand']);
         }
-        
+
         $pimple['fractal'] = $manager;
     }
 }

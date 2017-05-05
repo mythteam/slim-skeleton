@@ -9,7 +9,7 @@ use Pimple\ServiceProviderInterface;
 class DatabaseProvider implements ServiceProviderInterface
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function register(Container $container)
     {
@@ -17,15 +17,15 @@ class DatabaseProvider implements ServiceProviderInterface
             return;
         }
         $options = $container['db'];
-        
+
         $manager = new Manager();
         foreach ($options as $conn => $option) {
             $manager->addConnection($option, $conn);
         }
-        
+
         $manager->setAsGlobal();
         $manager->bootEloquent();
-        
+
         $container['db'] = $manager;
     }
 }

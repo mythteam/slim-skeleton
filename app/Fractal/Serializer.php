@@ -5,12 +5,10 @@ namespace App\Fractal;
 use League\Fractal\Pagination\CursorInterface;
 use League\Fractal\Pagination\PaginatorInterface;
 use League\Fractal\Resource\ResourceInterface;
-use League\Fractal\Serializer\ArraySerializer;
 use League\Fractal\Serializer\SerializerAbstract;
 
 class Serializer extends SerializerAbstract
 {
-    
     /**
      * Serialize a collection.
      *
@@ -24,10 +22,10 @@ class Serializer extends SerializerAbstract
         if ($resourceKey) {
             return [$resourceKey => $data];
         }
-        
+
         return $data;
     }
-    
+
     /**
      * Serialize an item.
      *
@@ -41,10 +39,10 @@ class Serializer extends SerializerAbstract
         if ($resourceKey) {
             return [$resourceKey => $data];
         }
-        
+
         return $data;
     }
-    
+
     /**
      * Serialize null resource.
      *
@@ -54,7 +52,7 @@ class Serializer extends SerializerAbstract
     {
         return [];
     }
-    
+
     /**
      * Serialize the included data.
      *
@@ -67,7 +65,7 @@ class Serializer extends SerializerAbstract
     {
         return $data;
     }
-    
+
     /**
      * Serialize the meta.
      *
@@ -80,10 +78,10 @@ class Serializer extends SerializerAbstract
         if (empty($meta)) {
             return [];
         }
-        
+
         return ['meta' => $meta];
     }
-    
+
     /**
      * Serialize the paginator.
      *
@@ -93,30 +91,30 @@ class Serializer extends SerializerAbstract
      */
     public function paginator(PaginatorInterface $paginator)
     {
-        $currentPage = (int)$paginator->getCurrentPage();
-        $lastPage = (int)$paginator->getLastPage();
-        
+        $currentPage = (int) $paginator->getCurrentPage();
+        $lastPage = (int) $paginator->getLastPage();
+
         $pagination = [
-            'total' => (int)$paginator->getTotal(),
-            'count' => (int)$paginator->getCount(),
-            'per_page' => (int)$paginator->getPerPage(),
+            'total'        => (int) $paginator->getTotal(),
+            'count'        => (int) $paginator->getCount(),
+            'per_page'     => (int) $paginator->getPerPage(),
             'current_page' => $currentPage,
-            'total_pages' => $lastPage,
+            'total_pages'  => $lastPage,
         ];
-        
+
         $pagination['links'] = [];
-        
+
         if ($currentPage > 1) {
             $pagination['links']['previous'] = $paginator->getUrl($currentPage - 1);
         }
-        
+
         if ($currentPage < $lastPage) {
             $pagination['links']['next'] = $paginator->getUrl($currentPage + 1);
         }
-        
+
         return ['pagination' => $pagination];
     }
-    
+
     /**
      * Serialize the cursor.
      *
@@ -128,11 +126,11 @@ class Serializer extends SerializerAbstract
     {
         $cursor = [
             'current' => $cursor->getCurrent(),
-            'prev' => $cursor->getPrev(),
-            'next' => $cursor->getNext(),
-            'count' => (int)$cursor->getCount(),
+            'prev'    => $cursor->getPrev(),
+            'next'    => $cursor->getNext(),
+            'count'   => (int) $cursor->getCount(),
         ];
-        
+
         return ['cursor' => $cursor];
     }
 }

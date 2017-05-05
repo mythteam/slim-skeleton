@@ -8,12 +8,9 @@ use App\Transformers\UserTransformer;
 use League\Fractal\Resource\Item;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use SplDoublyLinkedList;
 
 /**
  * Base Controller.
- *
- * @package App\Controllers
  */
 class IndexController extends Controller
 {
@@ -21,26 +18,27 @@ class IndexController extends Controller
     {
         return $this->render('index.php', []);
     }
-    
+
     public function loginAction(Request $request, Response $response): Response
     {
         return $this->renderJson([
             'user' => $request->getParsedBody(),
         ]);
     }
-    
+
     /**
      * ~~~
      * /rest
      * /rest?expand=posts,posts.thumbnails
      * /rest?expand=posts
-     * ~~~
+     * ~~~.
+     *
      * @return Response
      */
     public function restAction()
     {
         $user = new Item(new User(), new UserTransformer(), 'data');
-        
+
         return $this->renderResource($user);
     }
 }
